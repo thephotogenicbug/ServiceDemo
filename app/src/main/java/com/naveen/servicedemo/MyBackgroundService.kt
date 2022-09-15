@@ -8,11 +8,11 @@ import android.util.Log
 class MyBackgroundService: Service() {
 
     init {
-        Log.i("MYTAG", "Service has been created")
+        Log.i(TAG, "Service has been created")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        Log.i("MYTAG", "Service Started")
+        Log.i(TAG, "Service Started")
 
         return START_STICKY
     }
@@ -20,7 +20,11 @@ class MyBackgroundService: Service() {
     override fun onBind(p0: Intent?): IBinder? = null
 
     override fun onDestroy() {
-        Log.i("MYTAG","Destroying...")
+        Log.i(TAG,"Destroying...")
         super.onDestroy()
+    }
+
+    companion object{
+        const val  TAG = "MYTAG"
     }
 }
