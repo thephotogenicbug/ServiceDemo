@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.naveen.servicedemo.MyBackgroundService.Companion.MARKS
+import com.naveen.servicedemo.MyBackgroundService.Companion.NAME
 import com.naveen.servicedemo.MyBackgroundService.Companion.TAG
 import com.naveen.servicedemo.databinding.ActivityMainBinding
 
@@ -14,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val serviceIntent = Intent(this, MyBackgroundService::class.java)
+        serviceIntent.putExtra(NAME,"Naveen")
+        serviceIntent.putExtra(MARKS, 70)
         binding.btnStart.setOnClickListener{
             Log.i(TAG, "Starting Service")
            startService(serviceIntent)
